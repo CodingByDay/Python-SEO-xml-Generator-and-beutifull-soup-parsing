@@ -14,6 +14,7 @@ import os
 import nltk
 from nltk.corpus import wordnet
 import datetime
+import time
 # Files = os.listdir("../pages") # Always position the program like this
 
 # Function to find keywords
@@ -22,6 +23,8 @@ nltk.download('wordnet')
 list_synonyms = []
 
 word_in_title = []
+
+
 
 def Findsynonyms(data):
     for syn in wordnet.synsets(data): 
@@ -263,24 +266,30 @@ def main():
 
     elif inputNumber == 5:
         print("Started making thumbnails this can take a while, you might want to put some coffee in the meantime. :)")
+        
         # Function variables, location.
         FileSystemFolderLocation = 'C:\inetpub\wwwroot\App_Data\pages'
-        nameOfFile = str("pictures\\" + "urlse" + ".txt")
-       # filen = open(nameOfFile, "x") 
-        for filename in os.listdir(FileSystemFolderLocation):
+        nameOfFile = str("pictures\\" + "pictures" + ".txt")
+        Pictures = open(nameOfFile, "r").read().splitlines()
+        start = time.time()
+        for filename in Pictures:
             print(filename)
-            tempRegeditCMD = filename.replace(".html", "")
-            tempCMD = "http://emmares.com/SearchAPI/Get_File/" + tempRegeditCMD
-           # file.write(tempCMD + "\n")  
-            print(tempCMD)
+            final = filename.replace("http://emmares.com/SearchAPI/Get_File/", "")
+            #tempCMD = "http://emmares.com/SearchAPI/Get_File/" + tempRegeditCMD
+            # file.write(tempCMD + "\n")  
+            #print(tempCMD)
             print("Taking a screenshot...")
-            #CMDcommand = "C:\\Users\\emmaresmvp\\Desktop\\Thumbnail\\bin\\Release\\GetSiteThumbnail.exe" + " " + tempCMD + " " + 'C:\\inetpub\\wwwroot\\App_Data\\images\\' + tempRegeditCMD + ".jpg"
+            CMDcommand = "C:\\Users\\emmaresmvp\\Desktop\\Thumbnail\\bin\\Release\\GetSiteThumbnail.exe" + " " + filename + " " + 'C:\\inetpub\\wwwroot\\App_Data\\images\\' + final + ".jpg"
             
             # Firing up a CMD window
-            FinalCMD = 'cmd.exe /C' + " " + '"' + CMDcommand + '"' 
+            FinalCMD = "/C" + CMDcommand 
             print(CMDcommand)
-          #  os.system(CMDcommand)
             
+            os.system(FinalCMD)
+           
+            
+            
+
     else:
         print("Uknown functionality... Try again.")
         main() 
@@ -288,3 +297,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+ 
+ 

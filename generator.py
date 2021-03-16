@@ -260,9 +260,31 @@ def main():
             file.write("\n")
         file.close
 
+
+    elif inputNumber == 5:
+        print("Started making thumbnails this can take a while, you might want to put some coffee in the meantime. :)")
+        # Function variables, location.
+        FileSystemFolderLocation = 'C:\inetpub\wwwroot\App_Data\pages'
+        nameOfFile = str("pictures\\" + "urlse" + ".txt")
+       # filen = open(nameOfFile, "x") 
+        for filename in os.listdir(FileSystemFolderLocation):
+            print(filename)
+            tempRegeditCMD = filename.replace(".html", "")
+            tempCMD = "http://emmares.com/SearchAPI/Get_File/" + tempRegeditCMD
+           # file.write(tempCMD + "\n")  
+            print(tempCMD)
+            print("Taking a screenshot...")
+            #CMDcommand = "C:\\Users\\emmaresmvp\\Desktop\\Thumbnail\\bin\\Release\\GetSiteThumbnail.exe" + " " + tempCMD + " " + 'C:\\inetpub\\wwwroot\\App_Data\\images\\' + tempRegeditCMD + ".jpg"
+            
+            # Firing up a CMD window
+            FinalCMD = 'cmd.exe /C' + " " + '"' + CMDcommand + '"' 
+            print(CMDcommand)
+          #  os.system(CMDcommand)
+            
     else:
         print("Uknown functionality... Try again.")
         main() 
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,7 @@
+beautifulsoup4
+nltk
+urllib3
+re2
+nltk
+wordnet
+datetime

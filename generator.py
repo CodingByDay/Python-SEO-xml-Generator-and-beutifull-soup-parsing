@@ -266,26 +266,34 @@ def main():
 
     elif inputNumber == 5:
         print("Started making thumbnails this can take a while, you might want to put some coffee in the meantime. :)")
-        
+        start_time = time.time()
+        seconds = 20
         # Function variables, location.
         FileSystemFolderLocation = 'C:\inetpub\wwwroot\App_Data\pages'
         nameOfFile = str("pictures\\" + "pictures" + ".txt")
         Pictures = open(nameOfFile, "r").read().splitlines()
         start = time.time()
         for filename in Pictures:
-            print(filename)
-            final = filename.replace("http://emmares.com/SearchAPI/Get_File/", "")
-            #tempCMD = "http://emmares.com/SearchAPI/Get_File/" + tempRegeditCMD
-            # file.write(tempCMD + "\n")  
-            #print(tempCMD)
-            print("Taking a screenshot...")
-            CMDcommand = "C:\\Users\\emmaresmvp\\Desktop\\Thumbnail\\bin\\Release\\GetSiteThumbnail.exe" + " " + filename + " " + 'C:\\inetpub\\wwwroot\\App_Data\\images\\' + final + ".jpg"
+            while True:
+                current_time = time.time()
+                elapsed_time = current_time - start_time
+                print(filename)
+                final = filename.replace("http://emmares.com/SearchAPI/Get_File/", "")
+                #tempCMD = "http://emmares.com/SearchAPI/Get_File/" + tempRegeditCMD
+                #file.write(tempCMD + "\n")  
+                #print(tempCMD)
+                print("Taking a screenshot...")
+                CMDcommand = "C:\\Users\\emmaresmvp\\Desktop\\Thumbnail\\bin\\Release\\GetSiteThumbnail.exe" + " " + filename + " " + "C:\\inetpub\\wwwroot\\App_Data\\images\\" + final + ".jpg"
             
-            # Firing up a CMD window
-            FinalCMD = "/C" + CMDcommand 
-            print(CMDcommand)
+                #Firing up a CMD window
+                FinalCMD = " cmd /c" + " " + CMDcommand
+                print(CMDcommand)
             
-            os.system(FinalCMD)
+                os.system(FinalCMD)
+                if elapsed_time > seconds:
+                    print("Finished iterating in: " + str(int(elapsed_time))  + " seconds")
+                    continue
+           
            
             
             

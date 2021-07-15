@@ -1,0 +1,140 @@
+﻿@model Emmares4.Models.Campaign
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    <script>
+        $("#cnfbtn").show();
+        $("#savebtn").hide();
+        function btnclick() {
+            $("#cnfbtn").hide();
+            $("#savebtn").show();
+
+            //$("#formdiv :input").attr("disabled", true);
+        }
+        function btnclick1() {
+            //$("#formdiv :input").attr("disabled", false);
+        }
+       
+        $('#txt-input').on('input', function () {
+            var valu = $('#txt-input').val();
+            valu = 1/100*valu
+            $('#Sugtokens').text(Math.round(valu * 100) / 100);           
+        });
+
+    </script>
+}
+
+@section cls { class="gray-main-content" }
+<h1 class="sr-only">Dashboard</h1>
+<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title">Campaigns</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12" id="exploreBox">
+            <div class="panel white-box scrollable-panel">
+                <div class="panel-content">
+                    <h4 class="formtitle">New Campaign</h4>
+                    <form asp-action="Create" id="basic-form" method="post" novalidate="" class="add-compionform">
+                        <div class="row flex-row margin-bottom-15">
+                            <div class="col-sm-4">
+                                <div class="formbox-right" id="formdiv">
+                                    <p>Create a new email campaign</p>
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-group">
+                                        <label asp-for="Name" class="control-label"></label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Publisher" class="control-label"></label>
+                                        <input asp-for="Publisher.Name" class="form-control" readonly />
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="GenreID" class="control-label"></label>
+                                        <select asp-for="GenreID" class="form-control" asp-items="ViewBag.GenreID">
+                                            <option value="">-- Select Genre --</option>
+                                        </select>
+                                        <span asp-validation-for="GenreID" class="text-danger" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="RegionID" class="control-label"></label>
+                                        <select asp-for="RegionID" class="form-control" asp-items="ViewBag.RegionID">
+                                            <option value="">-- Select Region --</option>
+                                        </select>
+                                        <span asp-validation-for="RegionID" class="text-danger" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="ContentTypeID" class="control-label"></label>
+                                        <select asp-for="ContentTypeID" class="form-control" asp-items="ViewBag.ContentTypeID">
+                                            <option value="">-- Select Content Type --</option>
+                                        </select>
+                                        <span asp-validation-for="ContentTypeID" class="text-danger" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Recipients" class="control-label"></label>
+                                        <input asp-for="Recipients" class="form-control" id="txt-input" />
+                                        <span asp-validation-for="Recipients" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <hr class="visible-xs">
+                            </div>
+                            <div class="col-sm-4 border-l-r">
+                                <div class="formbox">
+                                    <p>Select your rewarding budget.</p>
+                                    <div class="form-group">
+                                        <label>Suggested budget: </label>
+                                        <h5 style="color: #666;">
+                                            <span id="Sugtokens">0</span>
+                                            EMA
+                                        </h5>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Budget" class="control-label"></label>
+                                        <input asp-for="Budget" class="form-control" />
+                                        <span asp-validation-for="Budget" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="AvailableBalance" class="control-label"></label>
+                                        <input asp-for="AvailableBalance" class="form-control" readonly />
+                                        <span asp-validation-for="AvailableBalance" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <hr class="visible-xs">
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="formbox">
+                                    <p>
+                                        Copy the code and paste it on the
+                                        bottom of your campaign.
+                                    </p>
+                                    <div class="form-group">
+                                        <label asp-for="Snippet" class="control-label"></label>
+                                        <textarea class="form-control">Dynamic html snippet</textarea>
+                                        <span asp-validation-for="Snippet" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary blackbtn">Copy code</button>
+                                    </div>
+                                </div>
+                                <hr class="visible-xs">
+                            </div>
+                        </div>
+                        <div class="addcontainform-btn">
+                            <button id="cnfbtn" type="button" class="btn btn-primary" onclick="btnclick()">Confirm</button>
+                            <button id="savebtn" type="submit" class="btn btn-primary" onclick="btnclick1()">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

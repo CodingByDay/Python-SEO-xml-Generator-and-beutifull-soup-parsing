@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ExtractNewsletterFromEmail.exe" version="1.0.0.2" publicKeyToken="dbc4f33284943360" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="ExtractNewsletterFromEmail" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="ExtractNewsletterFromEmail.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Common.Logging.dll" size="45056">
+      <assemblyIdentity name="Common.Logging" version="3.4.1.0" publicKeyToken="AF08829B84F0328E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>IVUom2LioFwyL36yP/ufh/5IkjvsEnIqEX0AhXNwuw4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Common.Logging.Core.dll" size="10240">
+      <assemblyIdentity name="Common.Logging.Core" version="3.4.1.0" publicKeyToken="AF08829B84F0328E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>PYBjJr/OndrN2SK9+cluRd6RcvRaigr0zFFTgc6gGYQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExtractNewsletterFromEmail.exe" size="15800">
+      <assemblyIdentity name="ExtractNewsletterFromEmail" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>dqX8stIDv2Wg2gvG8Xg7z/Unk+YWeanPceemS+WknhM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlAgilityPack.dll" size="126976">
+      <assemblyIdentity name="HtmlAgilityPack" version="1.8.5.0" publicKeyToken="BD319B19EAF3B43A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>3z4DIu8r6Vd5nn22FMA/1wql6Qh/bAjZBTc1mGMljQc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OpenPop.dll" size="77824">
+      <assemblyIdentity name="OpenPop" version="2.0.6.1120" publicKeyToken="6BDB97F144B7EFC8" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>crCLhLw/5qMEOdC+ZtQE//D8oECNGOwntAVYgp+5Lf8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Quartz.dll" size="893440">
+      <assemblyIdentity name="Quartz" version="2.6.2.0" publicKeyToken="F6B8C98A402CC8A4" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>kX01+97I8czs2w38rX2+WQZ5iIE9cSUhtK7lYQfGhLw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Topshelf.dll" size="187904">
+      <assemblyIdentity name="Topshelf" version="4.0.4.161" publicKeyToken="B800C4CFCDEEA87B" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>KvUAbTQD3B9tggB9lwVTz757wocg8q2VAepdQApZ8XU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Topshelf.Quartz.dll" size="15360">
+      <assemblyIdentity name="Topshelf.Quartz" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ttRwOx9T5ci81fS1zmKvoBLJK0njGaQlGKzH9373HNE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ExtractNewsletterFromEmail.exe.config" size="1225">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>yWrxRybuUXSHQd55tk6RdW5B+pIZ+qQSUedHjj2uChA=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=TRENDNET\tadej" issuerKeyHash="44059c8d234209408041bdf27d406b066094e8ae" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>9psgjibG3MK48n4Hy5VwGr0XE1ABOJnxHoefWm3rP+0=</DigestValue></Reference></SignedInfo><SignatureValue>LdIJx9KWO/6YRth00szFue6NcOm/Z3/WLjxMK/WMFEzbrOVb/EZvXxKJiEi9ozE0OrGpWANjZXfQ0HXcLub0cDc4srnu5fvjb5QMJZRlzcTqmfW+S5wcHqVseesRa5aoBKPauMB45ZqBQgwEIejaeLOl/zpk8fht2JyFKziWrW4=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>vUTYwkXEtVnuE2AG7EJtHvqN8jh5ScpMWZ6yHZ8u71Gebt65J4WAazdMkUP/orLz54EJJmU5erI8XlHO89FG/DJso2IcHFOJH3mEpwiz56dOULYW7FWEItvnZkgoHD/jlf9/3JEYxiMiJhbao+29LsQBHLa2Z2R04VEdkEzc0AU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ed3feb6d5a9f871ef1993801501317bd1a7095cb077ef2b8c2dcc6268e209bf6" Description="" Url=""><as:assemblyIdentity name="ExtractNewsletterFromEmail.exe" version="1.0.0.2" publicKeyToken="dbc4f33284943360" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=TRENDNET\tadej</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>PxtaIdwBCkZySUycbkVS7mb41W5+z4XcAsKbXZxU0IM=</DigestValue></Reference></SignedInfo><SignatureValue>stY9DB3IGu2qvgqU/oAADmuRDkbW0fvhDUNNfC0LVfBVuIybRGI1RQHUnO6zQfEv5atNwn0ejD7oaVt/+Newz0jhk8Zm1q4S08hdi4ceX8cnnxOWdiv+Kdl8S+99B1bX19mOj7jr3Vahg1KkrzLFHk6jhK4wu1nxzRik2ZlRDOU=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>vUTYwkXEtVnuE2AG7EJtHvqN8jh5ScpMWZ6yHZ8u71Gebt65J4WAazdMkUP/orLz54EJJmU5erI8XlHO89FG/DJso2IcHFOJH3mEpwiz56dOULYW7FWEItvnZkgoHD/jlf9/3JEYxiMiJhbao+29LsQBHLa2Z2R04VEdkEzc0AU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQO5/OPiRddbRHXNpxOAzf4DANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwAVABSAEUATgBEAE4ARQBUAFwAdABhAGQAZQBqMB4XDTE4MDgzMDIyMjgyMloXDTE5MDgzMTA0MjgyMlowJzElMCMGA1UEAx4cAFQAUgBFAE4ARABOAEUAVABcAHQAYQBkAGUAajCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAvUTYwkXEtVnuE2AG7EJtHvqN8jh5ScpMWZ6yHZ8u71Gebt65J4WAazdMkUP/orLz54EJJmU5erI8XlHO89FG/DJso2IcHFOJH3mEpwiz56dOULYW7FWEItvnZkgoHD/jlf9/3JEYxiMiJhbao+29LsQBHLa2Z2R04VEdkEzc0AUCAwEAATANBgkqhkiG9w0BAQsFAAOBgQAarxTUxfxeCyIiKjFseS0OQigKHsqTQi+ZcanQ0NyuxHJI3Rc4hnhy6AmJdo/J/VV/1+osf6CUTjXGi9Z+Hfjr2Evw/6iWbJBy+LE/fS1qHmMKF3X7KvFHRRehlyQZR0xO5hlE32FkxBqqfsN4rmOvEY5ZBlxBVW9YEAuzl5MDpQ==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

@@ -248,7 +248,7 @@ def main():
            
     elif inputNumber == 4:
         urlfile = str(input("What is the name of the final file?"))
-        path = str("Scraping\\" + urlfile + ".txt")
+        path = str("pictures\\" + urlfile + ".txt")
         file = open(path, "w")
 
         for filename in os.listdir(directory):
@@ -256,7 +256,7 @@ def main():
             links.append(filename)
      
             tempRegedit = filename.replace(".html", "")
-            temp = "https://emmares.com/SearchAPI/Get_File/" + tempRegedit
+            temp = "http://emmares.com/SearchAPI/Get_File/" + tempRegedit
             realLinks.append(temp)
             print(temp)
         for link in realLinks:
@@ -267,11 +267,12 @@ def main():
 
     elif inputNumber == 5:
         print("Started making thumbnails this can take a while, you might want to put some coffee in the meantime. :)")
-        
+        urlfile = str(input("Enter the name of the url file from the pictures folder.\nEnter here--------------------->"))
+        path = str("pictures\\" + urlfile + ".txt")
         # Function variables, location.
         FileSystemFolderLocation = 'C:\inetpub\wwwroot\App_Data\pages'
-        nameOfFile = str("pictures\\" + "pictures" + ".txt")
-        Pictures = open(nameOfFile, "r").read().splitlines()
+       # nameOfFile = str("pictures\\" + "pictures" + ".txt")
+        Pictures = open(path, "r").read().splitlines()
         start = time.time()
         # timeout variable can be omitted, if you use specific value in the while condition
 
@@ -370,7 +371,7 @@ def main():
             
     elif inputNumber == 7:
         urlfile = str(input("What is the name of the final file?"))
-        path = str("Pictures\\" + urlfile + "REWORK"  + ".txt") 
+        path = str("Pictures\\" + urlfile + ".txt") 
         print("Started doing the rework :)")
         
         # Function variables, location.

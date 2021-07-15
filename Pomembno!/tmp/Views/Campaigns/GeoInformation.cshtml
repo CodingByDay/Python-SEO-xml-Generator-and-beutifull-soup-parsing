@@ -1,0 +1,80 @@
+﻿@model Emmares4.Models.GeoInformationViewModel;
+
+@{
+    ViewData["Title"] = "GeoInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section cls { class="gray-main-content" }
+
+@{
+    // Populate dropdown menus
+    List<SelectListItem> listCampaigns = new List<SelectListItem>();
+    List<SelectListItem> listStartDate = new List<SelectListItem>();
+    List<SelectListItem> listEndDate = new List<SelectListItem>();
+    listCampaigns.Add(new SelectListItem
+    {
+        Text = "All",
+        Value = "All"
+    });
+    foreach (var row in Model.GeoInformation)    // CampaignName, City, Country, Time
+    {
+        if (!listCampaigns.Exists(x => x.Value == row[0]))  // If the campaign name isn't in the dropdown menu yet.
+        {
+            listCampaigns.Add(new SelectListItem
+            {
+                Text = row[0],
+                Value = row[0]
+            });
+        }
+        if(!listStartDate.Exists(x => x.Value == row[3]))   // Add all valid dates
+        {
+            listStartDate.Add(new SelectListItem
+            {
+                Text = row[3],
+                Value = row[3]
+            });
+            listEndDate.Add(new SelectListItem
+            {
+                Text = row[3],
+                Value = row[3],
+                Selected = true // Keeps changing it until last is reached, but good enough for testing.
+            });
+        }
+    }
+}
+
+<div class="row" style="display:inline">
+    <div class="col-md-4">
+        Campaigns:  @Html.DropDownList("Campaigns", listCampaigns, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        Start Date: @Html.DropDownList("StartTime", listStartDate, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        End Date:   @Html.DropDownList("EndTime", listEndDate, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        <input type="button" id="buttonShow" value="Show" />
+    </div>
+</div>
+
+@section Scripts{ 
+    <script type="text/javascript">
+
+    </script>
+}
+
+<div><b>Campaign Hits</b></div>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Country</th>
+        <th>Number of visits</th>
+    </tr>
+    @foreach (var c in Model.CitiesCount)
+    {
+        <tr>
+            <td>@c.Key</td>
+            <td>@c.Value</td>
+        </tr>
+    }
+</table>

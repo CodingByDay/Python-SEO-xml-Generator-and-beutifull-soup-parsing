@@ -1,0 +1,12 @@
+﻿Uninstalling assembly 'C:\Users\emmaresmvp\Desktop\service\WhiteListEmail.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\emmaresmvp\Desktop\service\WhiteListEmail.InstallLog
+   assemblypath = C:\Users\emmaresmvp\Desktop\service\WhiteListEmail.exe
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\emmaresmvp\Desktop\service\WhiteListEmail.exe assembly.
+Uninstalling assembly 'C:\Users\emmaresmvp\Desktop\service\WhiteListEmail.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\emmaresmvp\Desktop\service\WhiteListEmail.InstallLog
+   assemblypath = C:\Users\emmaresmvp\Desktop\service\WhiteListEmail.exe
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\emmaresmvp\Desktop\service\WhiteListEmail.exe assembly.

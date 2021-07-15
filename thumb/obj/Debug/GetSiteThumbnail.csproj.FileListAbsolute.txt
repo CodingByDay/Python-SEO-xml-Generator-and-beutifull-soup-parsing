@@ -1,0 +1,7 @@
+C:\Users\emmaresmvp\Desktop\thumb\bin\Debug\GetSiteThumbnail.exe
+C:\Users\emmaresmvp\Desktop\thumb\bin\Debug\GetSiteThumbnail.pdb
+C:\Users\emmaresmvp\Desktop\thumb\obj\Debug\GetSiteThumbnail.csprojAssemblyReference.cache
+C:\Users\emmaresmvp\Desktop\thumb\obj\Debug\GetSiteThumbnail.csproj.ResolveComReference.cache
+C:\Users\emmaresmvp\Desktop\thumb\obj\Debug\GetSiteThumbnail.csproj.CoreCompileInputs.cache
+C:\Users\emmaresmvp\Desktop\thumb\obj\Debug\GetSiteThumbnail.exe
+C:\Users\emmaresmvp\Desktop\thumb\obj\Debug\GetSiteThumbnail.pdb

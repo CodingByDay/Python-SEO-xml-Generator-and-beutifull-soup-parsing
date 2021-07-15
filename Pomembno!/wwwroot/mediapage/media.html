@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EMMARES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <link rel="stylesheet" href="lib/Layout/style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Style the body */
+        body {
+          font-family: 'Montserrat', sans-serif;
+          background: url("background_main.jpg") no-repeat center center fixed;
+          margin: 0;
+          background-size: cover;
+        }
+        
+        /* Header/logo Title */
+        .header {
+          padding: 20px;
+          text-align: center;
+          color: white;
+        }
+        
+        .logo{
+         width: 45%; 
+        }
+        
+        /* Style the top navigation bar */
+        .header_links {
+            color: white !important;
+            margin-right: 2px;
+        }
+        
+        .header_links:hover {
+            text-decoration: none;
+            border-bottom: 2px solid goldenrod;
+        }
+        
+        /* Main column */
+        .main {
+          flex: 100%;
+          padding: 1px;
+          color: white;
+         text-align: center;  
+        }
+        
+        /* Footer */
+        .footer {
+        	position: absolute;
+            bottom: 0;
+            width: 96%;
+        	color: white;
+        	text-align: center;
+        }
+        
+        .link {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        ul {
+            overflow: hidden;
+            list-style-type: none;
+        	padding-left: 10px;
+        }
+        
+        li {
+            float: left;
+        	margin: 5px;
+        	margin-right: 15px;
+            overflow: hidden;
+        }
+        
+        
+        .float-left {
+            float: left;
+            width: 33%;
+        }
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+          .wrapp {
+            margin-left: 25%;
+            margin-right: 25%;
+            float: none;
+        }
+        
+        @media screen and (max-width: 770px) {
+          .wrapp {
+            margin-left: auto;
+            margin-right: auto;
+            float: none;
+        }
+        }
+		
+		@media screen and (max-width: 770px) and (max-height: 415px) {
+          .topnav {
+            display: none;
+        }
+        }
+        
+        
+        .signButton {
+            display: inline-block;
+            !important position: relative !important;
+            background-color: transparent !important;
+            border-color: white !important;
+            border-radius: 100px !important;
+            font-size: 12px !important;
+            margin-left: auto;
+            margin-right: auto;
+           /* padding-right: 40px !important;*/
+            /*float: right !important;*/
+           /* padding-right: 10px !important; */
+            margin-left: 20px !important;
+        }
+        
+        #searchString {
+            border-radius: 100px;
+            height: 50px;
+        }
+        
+        #submitButton {
+            display: inline-block;
+            position: relative;
+            background-color: goldenrod;
+            border-color: goldenrod;
+            border-radius: 100px;
+            height: 41px;
+            font-size: 13px !important;
+            font-weight: 900;
+            float: right;
+            margin-top: -45px;
+            margin-right: 5px;
+            background-image: linear-gradient(to right, #ffcc77 0%, #bf832a 100%);
+        }
+        
+        /* Style the topnav links */
+        .topnav a {
+          float: left;
+          display: block;
+            color: white;
+            text-decoration: underline;
+          text-align: center;
+          padding: 5px 5px;
+        }
+        /* On screens that are 600px wide or less, make the menu links stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .topnav a {
+            float: none;
+            width: 100%;
+        	  color: white;
+            text-decoration: underline;
+          }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div id="header">
+        <!-- Header start -->
+        <ul>
+            <div style="float: right; font-weight: 900; display:inline;">
+                <li>
+                    <a class="header_links" href="/Account/Login">LOG IN</a>
+                </li>
+                <li>
+                    <a class="header_links" href="/Account/Register">SIGN UP</a>
+                </li>
+                <li>
+                    <a class="header_links" href="">PRICING</a>
+                </li>
+            </div>
+        </ul>
+        <!-- Header end -->
+    </div>
+    <!-- Header -->
+    <div class="header">
+        <img src="Emmares_logo.png" alt="EMMARES" class="logo">
+        <p>Search for the future of email marketing.</p>
+    </div>
+    <!-- The flexible grid (content) -->
+    <div class="main">
+        <div id="body">
+            <!-- Body start -->
+            <!--<form>-->
+            <div class="wrapp">
+                <input type="text" class="form-control" id="searchString" aria-describedby="searchHelp" placeholder="Find your new favourite email campaign">
+                <button onclick="goonresults();" id="submitButton" type="submit" class="btn btn-primary">Go</button>
+                <br>
+            </div>
+            <br>
+            <div class="col-12" style="display: flex; justify-content:center; align-items:center; width: 60%; margin-left:auto; margin-right:auto;">
+                <div class="topnav">
+                    <a href="resultspage.html?q=Finance">Finance</a>
+                    <a href="resultspage.html?q=Business">Business</a>
+                    <a href="resultspage.html?q=Entertainment">Entertainment</a>
+                    <a href="resultspage.html?q=Technology">Technology</a>
+                    <a href="resultspage.html?q=Sports">Sports</a>
+                    <a href="resultspage.html?q=News">News</a>
+                </div>
+            </div>
+            <div class="col-sm-8 wrapp" style="display: flex; justify-content:center; align-items:center; width: 60%; margin-left:auto; margin-right:auto;">
+                <br>
+                <br>
+                <br>
+				<br>
+                <a href="/Account/Login"><button type="submit" class="btn btn-primary signButton">Sign In</button></a>
+                <a href="/Account/Register"><button type="submit" class="btn btn-primary signButton">Sign Up</button></a>
+            </div>
+            <!--</form> -->
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <ul>
+            <li><a class="link" href="https://www.facebook.com/emmares.io"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a class="link" href="https://www.linkedin.com/company/emmaresio"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a class="link" href="https://twitter.com/emmares_io"><i class="fab fa-twitter"></i></a></li>
+            <li><a class="link" href="https://medium.com/emmares"><i class="fab fa-medium-m"></i></a></li>
+            <li><a class="link" href="https://t.me/emmares"><i class="fab fa-telegram-plane"></i></a></li>
+            <!--<li>|</li><li><a class="link" href="">About</a></li><li><a class="link" href="">Pricing</a></li>-->
+            <div style="margin-bottom:10px; color: gray; text-align: right; padding-top: 5px;">©&nbsp;Emmares&nbsp;2018&nbsp;</div>
+        </ul>
+    </div>
+</body>
+
+</html>

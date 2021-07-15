@@ -1,0 +1,28 @@
+﻿@model Emmares4.Models.HomeViewModels.FavoritesViewModel
+
+
+<div class="panel-content">
+    <h2 class="heading"><i class="far fa-star"></i>FAVOURITE FIELDS OF INTEREST</h2>
+    <ul class="list-unstyled list favioratelist pre-scrollable" style="max-height:230px">
+        @{
+            int counter = 1;
+            foreach (var item in Model.Favorites)
+            {
+
+                <li>
+                    <span class="outer"><span class="inner">@counter</span></span>
+                    <a href="#" onclick="GetSubscriptions(this);">@item</a>
+                    <span class="pull-right right-delete-action">
+                        <a href="@Url.Action("DeleteField", "Home")?ContentTypeID=@item"> <img src="~/images/icon_trash.svg" alt="Remove"></a>                       
+                    </span>
+                </li>
+                counter++;
+            }
+        }
+    </ul>
+    <hr />
+    <select asp-for="ContentTypeID" class="form-control" asp-items="ViewBag.ContentTypeID">
+        <option value="">-- Select Content Type --</option>
+    </select>
+    <button class="btn btn-block btn-default" onclick="AddField();"><span class="pull-left"><i class="fas fa-plus"></i></span>Add a Field</button>
+</div>

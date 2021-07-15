@@ -1,0 +1,213 @@
+﻿@model Emmares4.Models.HomeViewModels.MyContentViewModel
+@{
+    ViewData["Title"] = "MyContent";
+}
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+@section Scripts {
+
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js "></script>
+
+    <script type="text/javascript">
+        var providerList;
+        $(document).ready(function () {
+            providerList = $('#providerList').DataTable({
+                serverSide: true,
+                processing: true,
+                bLengthChange: false,
+                searching: false,
+                ajax: {
+                    url: '@Url.Action("GetProviders", "Home")',
+                    type: "POST",
+                    data: function (d) {
+                        //var cnt = $("#ContentTypeFilter").val();
+                        //if (!(cnt == undefined || cnt == '')) {
+                        //    d.columns[2].search.value = $("#ContentTypeFilter option:selected").text();
+                        //}
+                        //d.columns[2].search.value = $("#ContentTypeFilter").val();
+                        d.Popularity = $("#popularityFilter").val();
+                        d.ContentType = $("#ContentTypeFilter").val();
+                        d.Interval = $("#IntervalFilter").val();                       
+                        d.Region = $("#RegionFilter").val();
+                        d.Genre = $("#GenreFilter").val();                      
+                    },
+                },
+                rowId:'ProviderID',
+                columns: [
+                    { data: "Name", title: "Provider" },
+                    { data: "Subscriptions", title: "Subscriptions" },
+                    { data: "Field", title: "Field" },
+                    {
+                        "render": function (data, type, full, meta)
+                        {
+                            return '<a href="@Url.Action("Subscribe", "Home")?ProviderID=' + full.ProviderID +'&FieldID=' + full.FieldID + '"><img src="'+ '@Url.Content("~/images/icon_list.svg")' + '" alt="s"></a>';
+                        }
+                    },
+                ]
+            });
+        });
+
+        function GetSubscriptions(el) {
+            var te = $(el).text();
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("MySubscriptions", "Home")?favorite=" + te,
+                success: function (response) {
+                    var dvItems = $("#entertainmentBox .panel-content");
+                    dvItems.empty();
+                    dvItems.html(response);
+                }
+            });
+        }
+
+        function Subscribe(el) {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("Subscribe", "Home")?ProviderID=" + el,
+                success: function (response) {
+                    alert(response);
+                    var dvItems = $("#SubscribedProviders .big");
+                    alert(dvItems);
+                    dvItems.empty();
+                    dvItems.html(response);
+                }
+            });
+        }
+
+        function DeleteField(el) {
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("DeleteField", "Home")?ContentTypeID=" + el,
+                success: function (response) {
+                    var dvItems = $("#favoriteFieldsInterest .panel");
+                    dvItems.empty();
+                    dvItems.html(response);
+                }
+            });
+        }
+
+        function AddField() {
+            var te = $('#ContentTypeID').val();
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("AddField", "Home")?ContentTypeID=" + te,
+                success: function (response) {
+                    var dvItems = $("#favoriteFieldsInterest .panel");
+                    dvItems.empty();
+                    dvItems.html(response);
+                }
+            });
+        }
+
+        function Filter() {
+            providerList.draw();
+        }
+    </script>
+}
+
+<h1 class="sr-only">MyContents</h1>
+<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title">My Content</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6" id="favoriteFieldsInterest">
+                    <div class="panel white-box">
+                        @Html.Partial("_favorites", Model.FavoritesVM)
+                    </div>
+                    <span class="rightsideicon"><i class="fas fa-chevron-right"></i></span>
+                </div>
+
+                <div class="col-md-6" id="entertainmentBox">
+                    <div class="panel white-box">
+                        <div class="panel-content">
+                            @Html.Partial("_SubscribedProviders", Model.SubscriptionsVM)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="exploreBox">
+                    <div class="panel white-box">
+                        <div class="panel-content">
+                            <h2 class="heading padding-l-0 dis-inline-block">EXPLORE</h2>
+                            <div class="navmenu pull-right">
+                                <ul class="list-inline">
+                                    <li>
+                                        <select id="popularityFilter" class="form-control" asp-items="ViewBag.Popularity" onchange="Filter()">
+                                            <option value="">Most Subscribed</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select id="ContentTypeFilter" class="form-control" asp-items="ViewBag.ContentTypeID" onchange="Filter()">
+                                            <option value="">All Fields</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select id="IntervalFilter" class="form-control" asp-items="ViewBag.Interval" onchange="Filter()">
+                                            <option value="">All Time</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select id="RegionFilter" class="form-control" asp-items="ViewBag.RegionID" onchange="Filter()">
+                                            <option value="">Worldwide</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select id="GenreFilter" class="form-control" asp-items="ViewBag.GenreID" onchange="Filter()">
+                                            <option value="">All Types</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                <div class="dropdown">
+
+                                    <div aria-labelledby="dropdownMenuButton">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive pre-scrollable">
+                                <table class="table table-striped table-bordered dt-responsive nowrap" id="providerList"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel white-box rightside-whitebox">
+                <div id="SubscribedProviders" class="panel-content">
+                    <h2 class="heading padding-l-0">
+                        SUBSCRIBED PROVIDERS
+                        <p class="yellowtag">BY RATING</p>
+                    </h2>
+                    <div class="pre-scrollable big">
+                        <ul class="list-unstyled favioratelist list">
+                            @foreach (var item in Model.SubscriptionsVM.AllSubscriptions)
+                            {
+                                <li>
+                                    @item.Name<span style="margin-left:70px">@item.AverageRating</span>
+                                    <span class="pull-right right-delete-action1">
+
+                                        <a href='@Url.Action("Unsubscribe", "Home")?ProviderID=@item.ProviderID&FieldID=@item.FieldID'><img src="~/images/icon_list.svg" alt="s"></a>
+                                    </span>
+
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

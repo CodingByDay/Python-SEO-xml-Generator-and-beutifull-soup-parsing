@@ -1,0 +1,60 @@
+@media screen and (max-width: 288px) {
+.header {
+			float: right; 
+			font-weight: 900; 
+
+        }		
+.header_links {
+			text-align: center;
+            color: white !important;
+			margin-right: 0.5em;
+			margin-left: 0.5em;
+			list-style-type: none;
+        }
+		
+
+.header_links:hover {
+            text-decoration: none;
+            border-bottom: 2px solid goldenrod;
+        }
+}	
+
+
+.header {
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo {
+            width: 45%;
+        }
+		
+.link {
+            color: white;
+            text-decoration: underline;
+        }
+
+ul{
+	padding-left 0px;
+}
+		
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
+
+.footer ul{
+			overflow: hidden;
+            list-style-type: none;
+}		
+
+.footer li{
+			float: left;
+            margin: 1em;
+            overflow: hidden;
+}	

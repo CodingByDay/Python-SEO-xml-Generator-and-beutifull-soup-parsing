@@ -1,0 +1,11 @@
+C:\Users\emmaresmvp\Desktop\thumb\bin\Release\GetSiteThumbnail.exe.manifest
+C:\Users\emmaresmvp\Desktop\thumb\bin\Release\GetSiteThumbnail.application
+C:\Users\emmaresmvp\Desktop\thumb\bin\Release\GetSiteThumbnail.exe
+C:\Users\emmaresmvp\Desktop\thumb\bin\Release\GetSiteThumbnail.pdb
+C:\Users\emmaresmvp\Desktop\thumb\obj\Release\GetSiteThumbnail.csprojAssemblyReference.cache
+C:\Users\emmaresmvp\Desktop\thumb\obj\Release\GetSiteThumbnail.csproj.ResolveComReference.cache
+C:\Users\emmaresmvp\Desktop\thumb\obj\Release\GetSiteThumbnail.csproj.CoreCompileInputs.cache
+C:\Users\emmaresmvp\Desktop\thumb\obj\Release\GetSiteThumbnail.exe.manifest
+C:\Users\emmaresmvp\Desktop\thumb\obj\Release\GetSiteThumbnail.application
+C:\Users\emmaresmvp\Desktop\thumb\obj\Release\GetSiteThumbnail.exe
+C:\Users\emmaresmvp\Desktop\thumb\obj\Release\GetSiteThumbnail.pdb

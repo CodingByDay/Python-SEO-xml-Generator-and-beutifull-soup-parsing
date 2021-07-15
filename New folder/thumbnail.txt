@@ -1,0 +1,89 @@
+using System;
+using System.Drawing;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Forms;
+
+public class WebsiteThumbImage
+{
+    public int ThumbWidth { get; set; }
+    public int ThumbHeight { get; set; }
+    public int BrowserWidth { get; set; }
+    public int BrowserHeight { get; set; }
+
+    public string Url { get; set; }
+    public Bitmap ThumbImage { get; set; }
+
+    public Bitmap Generate()
+    {
+        if (ValidationControl())
+            return null;
+
+        Thread th = new Thread(new ThreadStart(_Execute));
+        th.SetApartmentState(ApartmentState.STA);
+        th.Start();
+        th.Join();
+
+        return ThumbImage;
+    }
+
+    // just operational codes :D
+    public void _Execute()
+    {            
+        WebBrowser browser = new WebBrowser();
+        browser.ScrollBarsEnabled = false;
+        browser.Navigate(this.Url);
+        browser.DocumentCompleted += browser_DocumentCompleted;
+
+        while (browser.ReadyState != WebBrowserReadyState.Complete)
+            Application.DoEvents();
+        browser.Dispose();
+
+    }
+
+    void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+    {
+        WebBrowser WebBrowser = (WebBrowser)sender;
+        WebBrowser.ClientSize = new Size(this.BrowserWidth, this.BrowserHeight);
+        WebBrowser.ScrollBarsEnabled = false;
+
+        this.ThumbImage = new Bitmap(WebBrowser.Bounds.Width, WebBrowser.Bounds.Height);
+        WebBrowser.BringToFront();
+        WebBrowser.DrawToBitmap(this.ThumbImage, WebBrowser.Bounds);
+        this.ThumbImage = (Bitmap)this.ThumbImage.GetThumbnailImage(this.ThumbWidth, this.ThumbHeight, null, IntPtr.Zero);
+    }
+
+    private bool ValidationControl() 
+    {
+        if (String.IsNullOrEmpty(this.Url))
+            throw new ArgumentNullException();
+
+        // for url validation
+        if (!Uri.IsWellFormedUriString(this.Url, UriKind.RelativeOrAbsolute))
+            throw new Exception();
+
+        // another validation method -- using optional
+        if (!IsValidUrl(this.Url))
+            throw new Exception();
+
+        return true;
+    }
+
+    private bool IsValidUrl(string url)
+    {
+        return Regex.IsMatch(url, @"(http|https)://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?");
+    }
+}
+
+// Let's use
+ string url = ((string.IsNullOrEmpty(Request.Params["site"])) ? "blog.yemrekeskin.com" : Request.Params["site"]);
+ int width = ((string.IsNullOrEmpty(Request.Params["width"])) ? 1000 : int.Parse(Request.Params["width"]));
+ int height = ((string.IsNullOrEmpty(Request.Params["height"])) ? 940 : int.Parse(Request.Params["height"]));
+ int capWidth = ((string.IsNullOrEmpty(Request.Params["capWidth"])) ? 900 : int.Parse(Request.Params["capWidth"]));
+ int capHeight = ((string.IsNullOrEmpty(Request.Params["capHeight"])) ? 800 : int.Parse(Request.Params["capHeight"]));
+
+ string address = "http://" + url;
+ Bitmap thumbnail = WebsiteThumbnailImageGenerator.GetWebSiteThumbnail(address, capWidth, capHeight, width, height);
+
+ Response.ContentType = "image/jpeg";
+ thumbnail.Save(Response.OutputStream, ImageFormat.Jpeg);

@@ -7,6 +7,7 @@
 ## <url><loc>https://emmares.com/resultspage.html?q=Sports</loc><lastmod>2019-11-09T09:16:09+00:00</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>
 
 ## libraries needed: Beautiful Soup 4, os
+from typing import Final
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
@@ -284,13 +285,20 @@ def main():
             # file.write(tempCMD + "\n")  
             #print(tempCMD)
             print("Taking a screenshot...")
-            CMDcommand = "C:\\Users\\emmaresmvp\\Desktop\\Thumbnail\\bin\\Release\\GetSiteThumbnail.exe" + " " + filename + " " + "C:\\inetpub\\wwwroot\\App_Data\\images\\" + final + ".jpg"
+            CMDcommand = "C:\\Users\\emmaresmvp\\Desktop\\Thumbnail\\bin\\Release\\GetSiteThumbnail.exe" + " " + filename + " " + "C:\\inetpub\\wwwroot\\wwwroot\\images\\" + final + ".jpg"
             
             # Firing up a CMD window
             FinalCMD = " cmd /c" + " " + CMDcommand
             print(CMDcommand)
-            
+        
             os.system(FinalCMD)
+
+            time.sleep(3)
+            continue
+
+
+          
+          
             
     elif inputNumber == 6:    
         urlfile = str(input("Enter the name of the url file from the pictures folder.\nEnter here--------------------->"))
@@ -375,9 +383,12 @@ def main():
         print("Started doing the rework :)")
         
         # Function variables, location.
+        file = str(input("What is the name of the updated file?"))
+        pathUpdated = str("Pictures\\" + file + ".txt") 
+        print("Started doing the rework :)")
         FileSystemFolderLocation = 'C:\inetpub\wwwroot\App_Data\pages'
         nameOfFile = str("Scraping\\" + "test42" + ".txt")
-        Pictures = open(nameOfFile, "r").read().splitlines()
+        Pictures = open(pathUpdated, "r").read().splitlines()
         start = time.time()
         # timeout variable can be omitted, if you use specific value in the while condition
         i=0

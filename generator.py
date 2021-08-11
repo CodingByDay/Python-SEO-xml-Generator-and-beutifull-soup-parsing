@@ -399,7 +399,7 @@ def main():
             # file.write(tempCMD + "\n")  
             #print(tempCMD)
             print(i)
-            FileSystemFolder = "C:\\inetpub\\wwwroot\\App_Data\\images\\" + final.replace("http://emmares.com/SearchAPI/Get_File/", "") + ".jpg"
+            FileSystemFolder = "C:\\inetpub\\wwwroot\\wwwroot\\images\\" + final.replace("http://emmares.com/SearchAPI/Get_File/", "") + ".jpg"
             print(FileSystemFolder)
             if os.path.isfile(FileSystemFolder):
                 continue
